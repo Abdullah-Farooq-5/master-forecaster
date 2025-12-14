@@ -10,7 +10,7 @@ from feature_engineer import engineer_features_for_date, get_feature_names
 
 # Page configuration
 st.set_page_config(
-    page_title="Predict - PM2.5 Forecasting",
+    page_title="PM2.5 Forecasting",
     page_icon="🎯",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -21,13 +21,16 @@ st.markdown("""
 <style>
     /* Main header styling */
     .main-header {
-        font-size: 3rem;
-        font-weight: 700;
+        font-size: 3rem !important;
+        font-weight: 900;
         color: #ffffff;
         text-align: center;
-        margin-bottom: 0.5rem;
-        padding: 1rem;
-        letter-spacing: -0.5px;
+        margin: 0.5rem auto 1rem auto;
+        padding: 2rem 1rem;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        text-shadow: 0 6px 12px rgba(0,0,0,0.35);
+        line-height: 1.1;
     }
     
     .subtitle {

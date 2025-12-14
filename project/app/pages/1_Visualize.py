@@ -7,7 +7,7 @@ from plotly.subplots import make_subplots
 from datetime import datetime, timedelta
 
 st.set_page_config(
-    page_title="Data Visualization - Air Quality Analysis",
+    page_title="Air Quality Analysis",
     page_icon="📊",
     layout="wide"
 )
@@ -16,11 +16,16 @@ st.set_page_config(
 st.markdown("""
 <style>
     .main-header {
-        font-size: 2.8rem;
-        font-weight: 700;
+        font-size: 3rem !important;
+        font-weight: 900;
         color: #ffffff;
         text-align: center;
-        margin-bottom: 0.5rem;
+        margin: 0.5rem auto 1rem auto;
+        padding: 2rem 1rem;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        text-shadow: 0 6px 12px rgba(0,0,0,0.35);
+        line-height: 1.1;
     }
     
     .section-header {
@@ -101,7 +106,7 @@ def get_aqi_category(pm25):
 
 def main():
     st.markdown('<p class="main-header">Lahore Air Quality - Visual Analytics Dashboard</p>', unsafe_allow_html=True)
-    st.markdown('<p style="text-align: center; color: #555; font-size: 1.1rem; margin-bottom: 2rem;">Interactive Data Exploration & Insights | January 2023 - May 2025</p>', unsafe_allow_html=True)
+    st.markdown('<p style="text-align: center; color: #cccccc; font-size: 1.1rem; margin-bottom: 2rem;">Interactive Data Exploration & Insights | January 2023 - May 2025</p>', unsafe_allow_html=True)
     
     # Load data
     df = load_data()

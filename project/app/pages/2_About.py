@@ -2,7 +2,7 @@ import streamlit as st
 import pandas as pd
 
 st.set_page_config(
-    page_title="About - Project Documentation",
+    page_title="Documentation",
     page_icon="📖",
     layout="wide"
 )
@@ -11,11 +11,16 @@ st.set_page_config(
 st.markdown("""
 <style>
     .main-header {
-        font-size: 2.8rem;
-        font-weight: 700;
+        font-size: 3rem !important;
+        font-weight: 900;
         color: #ffffff;
         text-align: center;
-        margin-bottom: 0.5rem;
+        margin: 0.5rem auto 1rem auto;
+        padding: 2rem 1rem;
+        letter-spacing: 6px;
+        text-transform: uppercase;
+        text-shadow: 0 6px 12px rgba(0,0,0,0.35);
+        line-height: 1.1;
     }
     
     .section-header {

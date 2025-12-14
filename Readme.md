@@ -8,7 +8,7 @@
 
 ## Overview
 
-Multi-page interactive dashboard for PM2.5 forecasting system built for **CS-245 Machine Learning** and **CS-366 Data Visualization** courses at NUST. The application provides:
+Multi-page interactive dashboard for PM2.5 forecasting system built for **CS-245 Machine Learning** and **CS-366 Data Visualization** courses. The application provides:
 
 - **Real-time Predictions:** Input current conditions and get tomorrow's PM2.5 forecast using 7 ML models
 - **Data Visualizations:** 10 diverse interactive charts exploring pollution patterns and trends  
@@ -69,11 +69,6 @@ This is a **multi-page Streamlit app** with 3 pages:
   - **Air Quality:** PM10, Ozone, CO, SO₂, NO₂
   - **Weather:** Max Temperature, Humidity, Precipitation, Wind Speed, Pressure
   - **Fire Activity:** FRP Max, FRP Total
-  
-- **Quick Presets:** 
-  - Winter Smog (High Pollution)
-  - Summer Clear (Low Pollution)
-  - Monsoon (Moderate)
 
 - **Prediction Output:**
   - Predicted PM2.5 for next day
@@ -137,13 +132,12 @@ This is a **multi-page Streamlit app** with 3 pages:
 **Content:**
 
 **Project Context:**
-- Dual project for CS-245 ML (due Dec 14, 2025) and CS-366 DV (due Dec 23, 2025)
 - Problem statement from both ML and DV perspectives
 - Technical objectives and challenges
 
 **Dataset Information:**
-- 3 data sources: AQI, Weather, Fire (NASA FIRMS)
-- 854 days of data (Jan 2023 - May 2025)
+- 3 data sources: AQI (Open Meteo API), Weather (Meteostat), Fire (NASA FIRMS)
+- 852 days of data (Jan 2023 - May 2025)
 - 19 columns in cleaned dataset
 
 **Data Processing Pipeline:**
@@ -264,10 +258,10 @@ master-forecaster/
 ## Technical Details
 
 ### Dataset
-- **Size:** 854 days (Jan 1, 2023 - May 1, 2025)
+- **Size:** 852 days (Jan 1, 2023 - May 1, 2025)
 - **Sources:** 
-  - US Consulate Lahore AQI (PM2.5, PM10, O₃, CO, SO₂, NO₂)
-  - Open-Meteo Weather API (temperature, humidity, wind, pressure, precipitation)
+  - Lahore AQI (Open-Meteo API) (PM2.5, PM10, O₃, CO, SO₂, NO₂)
+  - Lahore Weather (Meteostat) (temperature, humidity, wind, pressure, precipitation)
   - NASA FIRMS (fire radiative power)
 - **Features:** 93 engineered features (after variance/correlation filtering)
 - **Split:** 80% train / 10% validation / 10% test (chronological, no shuffle)
@@ -473,14 +467,15 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **M. Shahzil Asif** - Dashboard Development, UI/UX Design
 
 **Course Information:**
-- **CS-245 Machine Learning** (Due: December 14, 2025)
-- **CS-366 Data Visualization** (Due: December 23, 2025)
+- **CS-245 Machine Learning** 
 - **Instructor:** Mr. Usama Athar
+- **CS-366 Data Visualization**
+- **Instructor:** Mrs. Nikhar Azhar 
 - **Institution:** NUST School of Electrical Engineering and Computer Science (SEECS)
 
 **Data Sources:**
-- US Consulate Lahore Air Quality Monitor
-- Open-Meteo Weather API
+- Open Meteo API
+- Meteostat
 - NASA FIRMS (Fire Information for Resource Management System)
 
 ---
@@ -493,10 +488,7 @@ For issues or questions:
 1. Check this README thoroughly
 2. Review the **About** page in the dashboard
 3. Open an issue on GitHub
-4. Contact: abdullah.farooq@example.com
+4. Contact: chaudharyabdullah387@gmail.com
 
 ---
 
-**Built with ❤️ using Streamlit, Python, Scikit-learn, and Plotly**
-
-*Last Updated: December 14, 2025*
