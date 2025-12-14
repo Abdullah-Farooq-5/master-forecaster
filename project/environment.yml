@@ -30,7 +30,5 @@ dependencies:
   - jupyter
   - ipykernel
   
-  # Pip packages (if not available in conda)
+  # Pip packages (if needed)
   - pip
-  - pip:
-    - streamlit>=1.28.0
