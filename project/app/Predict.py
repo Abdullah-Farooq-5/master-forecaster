@@ -6,7 +6,11 @@ import plotly.express as px
 from datetime import datetime, timedelta
 import json
 import joblib
+from pathlib import Path
 from feature_engineer import engineer_features_for_date, get_feature_names
+
+# Get the correct base path for file loading
+BASE_DIR = Path(__file__).parent.parent
 
 # Page configuration
 st.set_page_config(
@@ -179,7 +183,8 @@ if 'use_random_date' not in st.session_state:
 def load_data():
     """Load historical data for lag/rolling features."""
     try:
-        df = pd.read_csv("../data/processed/merged_data_extended.csv")
+        data_path = BASE_DIR / "data" / "processed" / "merged_data_extended.csv"
+        df = pd.read_csv(data_path)
         df['date'] = pd.to_datetime(df['date'])
         return df
     except Exception as e:
@@ -190,7 +195,8 @@ def load_data():
 def load_scaler():
     """Load feature scaler."""
     try:
-        return joblib.load("../models/scaler.pkl")
+        scaler_path = BASE_DIR / "models" / "scaler.pkl"
+        return joblib.load(scaler_path)
     except Exception as e:
         st.error(f"Error loading scaler: {str(e)}")
         return None
@@ -199,7 +205,8 @@ def load_scaler():
 def load_model(model_name):
     """Load trained model."""
     try:
-        return joblib.load(f"../models/{model_name}_model.pkl")
+        model_path = BASE_DIR / "models" / f"{model_name}_model.pkl"
+        return joblib.load(model_path)
     except Exception as e:
         st.error(f"Error loading model {model_name}: {str(e)}")
         return None
@@ -208,7 +215,8 @@ def load_model(model_name):
 def load_model_performance():
     """Load model performance metrics from training results."""
     try:
-        with open("../models/training_results.json", "r") as f:
+        results_path = BASE_DIR / "models" / "training_results.json"
+        with open(results_path, "r") as f:
             results = json.load(f)
         return results
     except:

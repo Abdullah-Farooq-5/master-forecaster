@@ -5,6 +5,10 @@ import plotly.graph_objects as go
 import plotly.express as px
 from plotly.subplots import make_subplots
 from datetime import datetime, timedelta
+from pathlib import Path
+
+# Get the correct base path for file loading
+BASE_DIR = Path(__file__).parent.parent.parent
 
 st.set_page_config(
     page_title="Air Quality Analysis",
@@ -88,7 +92,8 @@ st.markdown("""
 def load_data():
     """Load the air quality dataset."""
     try:
-        df = pd.read_csv("../data/processed/merged_data_clean.csv")
+        data_path = BASE_DIR / "data" / "processed" / "merged_data_clean.csv"
+        df = pd.read_csv(data_path)
         df['date'] = pd.to_datetime(df['date'])
         return df
     except Exception as e:
@@ -619,7 +624,8 @@ def main():
     
     # Load model comparison data
     try:
-        model_df = pd.read_csv("../models/model_comparison.csv")
+        model_path = BASE_DIR / "models" / "model_comparison.csv"
+        model_df = pd.read_csv(model_path)
         
         # Filter to top models (exclude baselines for clarity)
         top_models = model_df[~model_df['model'].str.contains('Baseline|Moving Avg')].head(6)
@@ -692,7 +698,8 @@ def main():
     st.markdown('<p class="section-header">Visualization 9: Prediction Accuracy Analysis (Actual vs Predicted)</p>', unsafe_allow_html=True)
     
     try:
-        pred_df = pd.read_csv("../models/test_predictions.csv")
+        pred_path = BASE_DIR / "models" / "test_predictions.csv"
+        pred_df = pd.read_csv(pred_path)
         pred_df['date'] = pd.to_datetime(pred_df['date'])
         pred_df['error'] = pred_df['actual'] - pred_df['predicted']
         pred_df['abs_error'] = abs(pred_df['error'])
@@ -758,7 +765,8 @@ def main():
     st.markdown('<p class="section-header">Visualization 10: Feature Importance Analysis</p>', unsafe_allow_html=True)
     
     try:
-        feat_df = pd.read_csv("../models/lasso_feature_importance.csv")
+        feat_path = BASE_DIR / "models" / "lasso_feature_importance.csv"
+        feat_df = pd.read_csv(feat_path)
         
         # Get top 15 features
         top_features = feat_df.nlargest(15, 'abs_coefficient')
