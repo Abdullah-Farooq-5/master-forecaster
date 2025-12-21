@@ -402,7 +402,6 @@ def main():
             x='tmax',
             y='pm2_5_mean',
             color=color_map[color_by],
-            trendline='ols' if show_trendline else None,
             title=f"PM2.5 vs Maximum Temperature (colored by {color_by})",
             labels={'tmax': 'Maximum Temperature (°C)', 'pm2_5_mean': 'PM2.5 (µg/m³)'},
             height=500,
@@ -411,6 +410,23 @@ def main():
         )
         
         fig.update_traces(marker=dict(size=6))
+        
+        # Add manual trendline if requested
+        if show_trendline:
+            # Calculate linear regression manually
+            x = df['tmax'].values
+            y = df['pm2_5_mean'].values
+            z = np.polyfit(x, y, 1)
+            p = np.poly1d(z)
+            
+            # Add trendline
+            fig.add_scatter(
+                x=df['tmax'].sort_values(),
+                y=p(df['tmax'].sort_values()),
+                mode='lines',
+                name='Trendline',
+                line=dict(color='red', width=2, dash='dash')
+            )
         
         st.plotly_chart(fig, use_container_width=True)
     
