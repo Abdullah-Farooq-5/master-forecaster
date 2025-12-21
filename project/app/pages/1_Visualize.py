@@ -443,7 +443,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # ==================== VIZ 5: MONTHLY HEATMAP CALENDAR ====================
-    st.markdown('<p class="section-header">Visualization 4: Calendar Heatmap - Daily PM2.5 Patterns</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Visualization 5: Calendar Heatmap - Daily PM2.5 Patterns</p>', unsafe_allow_html=True)
     
     # Prepare data for heatmap
     df['year_month'] = df['date'].dt.to_period('M').astype(str)
@@ -486,7 +486,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # ==================== VIZ 5: AQI CATEGORY PIE CHART ====================
-    st.markdown('<p class="section-header">Visualization 5: AQI Category Distribution (Pie Chart)</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Visualization 6: AQI Category Distribution (Pie Chart)</p>', unsafe_allow_html=True)
     
     col1, col2 = st.columns([1, 1])
     
@@ -548,7 +548,7 @@ def main():
         """, unsafe_allow_html=True)
     
     # ==================== VIZ 6: POLAR WIND ROSE ====================
-    st.markdown('<p class="section-header">Visualization 6: Polar Wind Rose - PM2.5 by Wind Conditions</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Visualization 7: Polar Wind Rose - PM2.5 by Wind Conditions</p>', unsafe_allow_html=True)
     
     # Bin wind speeds
     df['wind_bin'] = pd.cut(df['wspd'], bins=[0, 2, 4, 6, 8, 20], labels=['0-2 m/s', '2-4 m/s', '4-6 m/s', '6-8 m/s', '8+ m/s'])
@@ -591,7 +591,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # ==================== VIZ 7: YEAR COMPARISON ====================
-    st.markdown('<p class="section-header">Visualization 7: Year-over-Year Comparison (Grouped Bar Chart)</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Visualization 8: Year-over-Year Comparison (Grouped Bar Chart)</p>', unsafe_allow_html=True)
     
     # Monthly averages by year
     monthly_yearly = df.groupby(['year', 'month'])['pm2_5_mean'].mean().reset_index()
@@ -636,7 +636,7 @@ def main():
     """, unsafe_allow_html=True)
     
     # ==================== VIZ 8: ML MODEL PERFORMANCE COMPARISON ====================
-    st.markdown('<p class="section-header">Visualization 8: ML Model Performance Comparison</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Visualization 9: ML Model Performance Comparison</p>', unsafe_allow_html=True)
     
     # Load model comparison data
     try:
@@ -711,7 +711,7 @@ def main():
         st.warning(f"Could not load model comparison data: {str(e)}")
     
     # ==================== VIZ 9: PREDICTION ACCURACY ANALYSIS ====================
-    st.markdown('<p class="section-header">Visualization 9: Prediction Accuracy Analysis (Actual vs Predicted)</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Visualization 10: Prediction Accuracy Analysis (Actual vs Predicted)</p>', unsafe_allow_html=True)
     
     try:
         pred_path = BASE_DIR / "models" / "test_predictions.csv"
@@ -778,7 +778,7 @@ def main():
         st.warning(f"Could not load prediction data: {str(e)}")
     
     # ==================== VIZ 10: FEATURE IMPORTANCE ====================
-    st.markdown('<p class="section-header">Visualization 10: Feature Importance Analysis</p>', unsafe_allow_html=True)
+    st.markdown('<p class="section-header">Visualization 11: Feature Importance Analysis</p>', unsafe_allow_html=True)
     
     try:
         feat_path = BASE_DIR / "models" / "lasso_feature_importance.csv"
