@@ -1,6 +1,6 @@
 # Master Forecaster Dashboard
 
-> **Interactive Streamlit application for PM2.5 air quality prediction in Lahore, Pakistan**
+> **Interactive Streamlit application for PM2.5 air quality prediction in Lahore, Pakistan (https://masterforecaster.streamlit.app/)**
 
 [![Streamlit](https://img.shields.io/badge/Streamlit-FF4B4B?style=for-the-badge&logo=Streamlit&logoColor=white)](https://streamlit.io/)
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
